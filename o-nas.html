@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O&nbsp;nás – YesChef</title>
+<meta name="description" content="Šéfkuchař Michael Veselý a příběh cateringu YesChef.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <div class="top-in">
+    <a href="./" class="brand" aria-label="YesChef – úvod">
+      <img src="img/logo.png" alt="YesChef logo" width="54" height="54">
+      <span>YesChef</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="sluzby.html">Služby</a>
+      <a href="o-nas.html" class="active" aria-current="page">O&nbsp;nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="video.html">Video</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html" class="pill pill-sm nav-cta">Poptat catering <i class="arrow"></i></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ZÁHLAVÍ STRÁNKY -->
+  <section class="page-hero">
+    <canvas class="hero-glow" id="glow" aria-hidden="true"></canvas>
+    <div class="hero-shade"></div>
+    <div class="wrap page-hero-in">
+      <nav class="crumbs" aria-label="Drobečková navigace"><a href="./">Úvod</a><span>/</span><span>O&nbsp;nás</span></nav>
+      <p class="kicker">O&nbsp;nás</p>
+      <h1>Naše láska k&nbsp;jídlu!</h1>
+      <p class="page-lead page-lead-script">Vařím pro vaše chuťové buňky!</p>
+    </div>
+  </section>
+  <!-- O NÁS -->
+  <section class="section section-dark" id="o-nas">
+    <div class="wrap about">
+      <div class="about-media">
+        <div class="ph ph-tall" style="--img:url('img/michael.jpg')"><span>Fotka: Michael při vaření</span></div>
+        <div class="ph ph-small" style="--img:url('img/detail.jpg')"><span>Fotka: detail jídla</span></div>
+        <div class="about-badge"><strong>Yes,</strong><em>Chef!</em></div>
+      </div>
+      <div class="about-text">
+        <p class="kicker">O&nbsp;nás</p>
+        <h2>Za každým talířem je šéfkuchař Michael Veselý</h2>
+        <p>Michael je vyučený kuchař z&nbsp;Hradce Králové. Jeho profese ho vede k&nbsp;tomu, aby sbíral recepty z&nbsp;celého světa a&nbsp;přinášel je na váš stůl. Tak vznikl YesChef.</p>
+        <p>Dnes vede kuchařský tým, pracuje v&nbsp;týmu slyšících a&nbsp;podniká pod vlastní značkou. Vaří tak, aby to byla jedna z&nbsp;nejlepších věcí, které jste kdy jedli.</p>
+        <ul class="checks">
+          <li>Menu sestavené přesně podle vás</li>
+          <li>Kompletní servis od přípravy po úklid</li>
+          <li>Inspirace z&nbsp;kuchyní celého světa</li>
+          <li>Akce v&nbsp;ČR i&nbsp;v&nbsp;zahraničí</li>
+        </ul>
+        <a href="poptavka.html" class="pill">Domluvit akci <i class="arrow"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VZDĚLÁNÍ A ZKUŠENOSTI (z původní stránky Info) -->
+  <section class="section" id="zkusenosti">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Vzdělání a&nbsp;zkušenosti</p>
+        <h2>Řemeslo, které má základ</h2>
+      </div>
+      <div class="award">
+        <div class="award-medal" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M22 4l10 18 10-18"/><circle cx="32" cy="40" r="18"/><circle cx="32" cy="40" r="12"/><path d="M29 36l4-3v15"/></svg>
+        </div>
+        <div class="award-text">
+          <span class="cred-tag">Ocenění · 2023</span>
+          <h3>1.&nbsp;místo v&nbsp;národní soutěži, kategorie Kuchař junior</h3>
+          <p>XXV. ročník národní soutěže kuchařského a&nbsp;cukrářského umění, Kongresové centrum Aldis, Hradec Králové. Michael zvítězil mezi zhruba 120 přihlášenými.</p>
+        </div>
+      </div>
+      <div class="creds">
+        <div class="cred cred-main">
+          <div class="cred-media" style="--img:url('img/vzdelani.jpg')"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 30c-6 0-10-5-9-10s7-8 12-6c2-6 8-9 14-8s10 6 9 11c5-1 9 3 9 8s-4 8-9 8"/><path d="M18 32v16h28V32"/><path d="M18 40h28"/><path d="M24 54l8-4 8 4"/></svg></div>
+          <span class="cred-tag">Vzdělání</span>
+          <h3>Vyučený kuchař-číšník</h3>
+          <p>Střední škola v&nbsp;Hradci Králové. Mezi jeho učitele patřil Lukáš Ende, bronzový medailista z&nbsp;mezinárodní kuchařské olympiády v&nbsp;Německu.</p>
+        </div>
+        <div class="cred">
+          <div class="cred-media" style="--img:url('img/carving.jpg')"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="34" cy="38" rx="16" ry="14"/><path d="M22 34l6 4 6-6 6 6 6-4"/><path d="M24 44l5 3 5-4 5 4 5-3"/><path d="M10 14l14 14"/><path d="M8 18l6-6 4 4-6 6z"/></svg></div>
+          <span class="cred-tag">Certifikát · 2019</span>
+          <h3>Czech Carving Studio</h3>
+          <p>Kurz vyřezávání ovoce a&nbsp;zeleniny, Hradec Králové, září 2019. Ozdoby, které na rautu nikdo nepřehlédne.</p>
+        </div>
+        <div class="cred">
+          <div class="cred-media" style="--img:url('img/certifikat.jpg')"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="12" width="40" height="30" rx="3"/><path d="M20 22h24M20 29h16"/><circle cx="42" cy="44" r="7"/><path d="M38 50l-2 8 6-3 6 3-2-8"/></svg></div>
+          <span class="cred-tag">Certifikát · 2019</span>
+          <h3>Hotel Mandarin Oriental Prague</h3>
+          <p>Certifikát z&nbsp;kurzu etikety a&nbsp;společenského chování Elišky Haškové Coolidge v&nbsp;Praze.</p>
+        </div>
+        <div class="cred">
+          <div class="cred-media" style="--img:url('img/tym.jpg')"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="22" r="7"/><path d="M20 50c0-8 5-14 12-14s12 6 12 14"/><circle cx="14" cy="28" r="5"/><path d="M5 50c0-6 4-11 9-11 2 0 4 1 5 2"/><circle cx="50" cy="28" r="5"/><path d="M59 50c0-6-4-11-9-11-2 0-4 1-5 2"/><path d="M27 12c-2-3 0-6 3-6 1-2 4-2 5 0 3 0 4 3 2 6"/></svg></div>
+          <span class="cred-tag">Praxe</span>
+          <h3>Vedoucí kuchařského týmu</h3>
+          <p>Vede tým v&nbsp;kuchyni a&nbsp;pracuje v&nbsp;týmu slyšících. Zkušenosti z&nbsp;provozu přenáší do každé akce YesChef.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAPSALI O NÁS (z původní stránky Info) -->
+  <section class="section section-dark" id="napsali">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Napsali o&nbsp;nás</p>
+        <h2>Michael v&nbsp;médiích</h2>
+      </div>
+      <div class="press-grid">
+        <a class="press" href="https://www.tichezpravy.cz/yes-chef-seznamte-se-s-michaelem-veselym/" target="_blank" rel="noopener">
+          <span class="press-src">Tiché zprávy</span>
+          <h3>Yes Chef – seznamte se s&nbsp;Michaelem Veselým</h3>
+          <p>Představení mladého kuchaře, jeho studia v&nbsp;Hradci Králové a&nbsp;začátků YesChef na sociálních sítích.</p>
+          <span class="pcard-link">Číst článek <i class="arrow"></i></span>
+        </a>
+        <a class="press" href="https://www.idetskysluch.cz/novinky/cesko/prace-s-lidmi-me-bavi/" target="_blank" rel="noopener">
+          <span class="press-src">iDětskýsluch.cz · 9.&nbsp;5.&nbsp;2024</span>
+          <h3>Práce s&nbsp;lidmi mě baví</h3>
+          <p>Michael popisuje svou cestu k&nbsp;profesionálnímu vaření a&nbsp;to, co ho na práci v&nbsp;kuchyni baví.</p>
+          <span class="pcard-link">Číst článek <i class="arrow"></i></span>
+        </a>
+        <a class="press" href="https://www.snncr.cz/Michael-Diky-tlumocnikum-znakoveho-jazyka-mam-stejne-informace-jako-slysici.html" target="_blank" rel="noopener">
+          <span class="press-src">SNNČR · duben 2020</span>
+          <h3>Michael: Díky tlumočníkům znakového jazyka mám stejné informace jako slyšící</h3>
+          <p>Rozhovor o&nbsp;studiu, plánech do budoucna a&nbsp;o&nbsp;tom, jak mu pomáhají tlumočníci.</p>
+          <span class="pcard-link">Číst článek <i class="arrow"></i></span>
+        </a>
+        <a class="press" href="https://www.vymolova.cz/" target="_blank" rel="noopener">
+          <span class="press-src">Škola Vymolova · 2023</span>
+          <h3>Úspěch našeho absolventa Michaela Veselého</h3>
+          <p>Škola pro sluchově postižené v&nbsp;Praze o&nbsp;Michaelově vítězství v&nbsp;národní kuchařské soutěži.</p>
+          <span class="pcard-link">Číst článek <i class="arrow"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNEŘI: z původní stránky Partnerství -->
+  <section class="section" id="partneri">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Obchodní partnerství</p>
+        <h2>Partneři a&nbsp;členství</h2>
+      </div>
+      <div class="partners">
+        <div class="pgroup pgroup-member">
+          <div class="pgroup-head"><h3>Členství</h3><p>Jsme členy profesních kuchařských organizací.</p></div>
+          <a class="pcard pcard-has-logo" href="https://akc.cz/" target="_blank" rel="noopener">
+            <span class="pcard-logo"><img src="img/partneri/akc.png" alt="Logo Asociace kuchařů a cukrářů ČR" loading="lazy"></span>
+            <span class="pcard-name">Asociace kuchařů a&nbsp;cukrářů ČR</span>
+            <span class="pcard-desc">Profesní sdružení kuchařů a&nbsp;cukrářů v&nbsp;Česku.</span>
+            <span class="pcard-link">akc.cz <i class="arrow"></i></span>
+          </a>
+          <a class="pcard pcard-has-logo" href="https://worldchefs.org/" target="_blank" rel="noopener">
+            <span class="pcard-logo"><img src="img/partneri/worldchefs.png" alt="Logo Worldchefs" loading="lazy"></span>
+            <span class="pcard-name">Worldchefs</span>
+            <span class="pcard-desc">Světová asociace kuchařských spolků.</span>
+            <span class="pcard-link">worldchefs.org <i class="arrow"></i></span>
+          </a>
+        </div>
+        <div class="pgroup">
+          <div class="pgroup-head"><h3>Partnerství</h3><p>Naši obchodní partneři.</p></div>
+          <a class="pcard pcard-has-logo" href="https://deafstudio.net/" target="_blank" rel="noopener">
+            <span class="pcard-logo"><img src="img/partneri/deafstudio.png" alt="Logo Deaf Studio" loading="lazy"></span>
+            <span class="pcard-name">Deaf Studio</span>
+            <span class="pcard-desc">Partner YesChef.</span>
+            <span class="pcard-link">deafstudio.net <i class="arrow"></i></span>
+          </a>
+          <a class="pcard pcard-has-logo" href="https://pousko.cz/ucetnictvi-pro-neslysici/" target="_blank" rel="noopener">
+            <span class="pcard-logo"><img src="img/partneri/pousko.png" alt="Logo Pouško" loading="lazy"></span>
+            <span class="pcard-name">Pouško</span>
+            <span class="pcard-desc">Účetnictví pro neslyšící.</span>
+            <span class="pcard-link">pousko.cz <i class="arrow"></i></span>
+          </a>
+          <a class="pcard pcard-has-logo" href="https://dchweby.cz" target="_blank" rel="noopener">
+            <span class="pcard-logo pcard-logo-dark"><img src="img/partneri/dchweby.svg" alt="Logo D.CH Weby od Davida" loading="lazy"></span>
+            <span class="pcard-name">D.CH Weby od Davida</span>
+            <span class="pcard-desc">Tvorba webů pro firmy a&nbsp;živnostníky. Autor tohoto webu.</span>
+            <span class="pcard-link">dchweby.cz <i class="arrow"></i></span>
+          </a>
+        </div>
+        <div class="pgroup">
+          <div class="pgroup-head"><h3>Spolupráce</h3><p>Firmy, se kterými spolupracujeme.</p></div>
+          <a class="pcard pcard-has-logo" href="https://www.sumup.com/cs-cz/" target="_blank" rel="noopener">
+            <span class="pcard-logo"><img src="img/partneri/sumup.svg" alt="Logo SumUp" loading="lazy"></span>
+            <span class="pcard-name">SumUp</span>
+            <span class="pcard-desc">Platby kartou.</span>
+            <span class="pcard-link">sumup.com <i class="arrow"></i></span>
+          </a>
+          <a class="pcard pcard-has-logo" href="https://www.cvak.cz/" target="_blank" rel="noopener">
+            <span class="pcard-logo pcard-logo-dark"><img src="img/partneri/cvak.png" alt="Logo CVAK" loading="lazy"></span>
+            <span class="pcard-name">CVAK</span>
+            <span class="pcard-desc">Spolupráce.</span>
+            <span class="pcard-link">cvak.cz <i class="arrow"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÝZVA K POPTÁVCE -->
+  <section class="cta-strip">
+    <div class="wrap cta-strip-in">
+      <div>
+        <p class="kicker">Plánujete akci?</p>
+        <h2>Pošleme vám menu na míru</h2>
+      </div>
+      <a href="poptavka.html" class="pill">Poptat catering <i class="arrow"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a href="./" class="brand"><img src="img/logo.png" alt="YesChef" width="54" height="54"><span>YesChef</span></a>
+    <nav class="foot-pages" aria-label="Stránky">
+      <a href="sluzby.html">Služby</a>
+      <a href="o-nas.html">O&nbsp;nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="video.html">Video</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html">Poptávka</a>
+    </nav>
+    <nav class="foot-links" aria-label="Sociální sítě">
+      <a href="https://www.facebook.com/YesChef.Czech/" target="_blank" rel="noopener" class="social" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.5V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8v3h2.6V21h2.9z"/></svg></a>
+      <a href="https://www.instagram.com/yeschef_czech/" target="_blank" rel="noopener" class="social" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a>
+      <a href="https://www.youtube.com/@yeschefczech7193" target="_blank" rel="noopener" class="social" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8 1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>IČO: 19955774 · © <span id="year">2026</span> YesChef</p>
+    <p>Web: <a href="https://dchweby.cz" target="_blank" rel="noopener">D.CH Weby od Davida</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

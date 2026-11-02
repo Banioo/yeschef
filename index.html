@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YesChef – catering</title>
+<meta name="description" content="YesChef – prémiový catering na svatby, firemní akce, soukromé oslavy a kuchařské tábory v ČR i v zahraničí. Šéfkuchař Michael Veselý.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <div class="top-in">
+    <a href="./" class="brand" aria-label="YesChef – úvod">
+      <img src="img/logo.png" alt="YesChef logo" width="54" height="54">
+      <span>YesChef</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="sluzby.html">Služby</a>
+      <a href="o-nas.html">O&nbsp;nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="video.html">Video</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html" class="pill pill-sm nav-cta">Poptat catering <i class="arrow"></i></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="uvod">
+    <canvas class="hero-glow" id="glow" aria-hidden="true"></canvas>
+    <div class="hero-photo" role="img" aria-label="Raut YesChef"></div>
+    <div class="hero-shade"></div>
+
+    <div class="wrap hero-grid">
+    <div class="hero-in">
+      <h1>Jídlo<span class="comma">,</span> na které<br>budou hosté <span class="script">vzpomínat</span></h1>
+      <p class="hero-lead">Od komorních oslav po velké svatby. Vaříme, servírujeme a&nbsp;staráme se o&nbsp;každý detail, abyste si vy mohli užít svůj den.</p>
+
+      <div class="hero-actions">
+        <a href="poptavka.html" class="pill">Nezávazná poptávka <i class="arrow"></i></a>
+        <a href="sluzby.html" class="link-play"><span class="play"></span>Naše služby</a>
+      </div>
+
+      <ul class="stats">
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 18h22a11 11 0 0 1-22 0Z"/><path d="M16 7v3M12 9l1 2M20 9l-1 2M3 18h26"/></svg>
+          <div><strong>od 2019</strong><span>vaříme pro vás</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 14a5 5 0 1 1 3-9 6 6 0 0 1 10 1 5 5 0 0 1 1 8"/><path d="M9 14v12h14V14"/><path d="M9 21h14"/></svg>
+          <div><strong>Vyučený kuchař</strong><span>Hradec Králové</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M4 16h24M16 4c4 4 4 20 0 24M16 4c-4 4-4 20 0 24"/></svg>
+          <div><strong>ČR i&nbsp;zahraničí</strong><span>přijedeme za vámi</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Animovaná ilustrace: poklop se zvedá, z jídla stoupá pára -->
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 500 500" class="art">
+        <defs>
+          <radialGradient id="artGlow" cx="50%" cy="55%" r="50%">
+            <stop offset="0" stop-color="#C6953D" stop-opacity=".35"/>
+            <stop offset="1" stop-color="#C6953D" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="artGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F0D08F"/>
+            <stop offset=".5" stop-color="#C6953D"/>
+            <stop offset="1" stop-color="#8E6526"/>
+          </linearGradient>
+          <path id="ringPath" d="M250 250 m-205 0 a205 205 0 1 1 410 0 a205 205 0 1 1 -410 0"/>
+        </defs>
+
+        <circle cx="250" cy="270" r="230" fill="url(#artGlow)"/>
+
+        <!-- Točící se nápis -->
+        <g class="art-ring">
+          <circle cx="250" cy="250" r="225" fill="none" stroke="#C6953D" stroke-opacity=".25" stroke-dasharray="2 8"/>
+          <text font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="7" fill="#C6953D" fill-opacity=".85">
+            <textPath href="#ringPath" textLength="1270" lengthAdjust="spacing">YES CHEF · CATERING · SVATBY · FIREMNÍ AKCE · OSLAVY · KUCHAŘSKÉ TÁBORY · </textPath>
+          </text>
+        </g>
+
+        <!-- Pára -->
+        <g class="steam" fill="none" stroke="#F3EDE3" stroke-width="3" stroke-linecap="round">
+          <path class="s1" d="M215 300 c-14 -22 14 -36 0 -58 c-14 -22 14 -36 0 -58"/>
+          <path class="s2" d="M250 300 c-14 -22 14 -36 0 -58 c-14 -22 14 -36 0 -58"/>
+          <path class="s3" d="M285 300 c-14 -22 14 -36 0 -58 c-14 -22 14 -36 0 -58"/>
+        </g>
+
+        <!-- Jídlo na talíři -->
+        <g class="dish">
+          <path d="M175 322 q75 -42 150 0 z" fill="url(#artGold)" opacity=".9"/>
+          <circle cx="215" cy="312" r="7" fill="#F0D08F"/>
+          <circle cx="252" cy="302" r="9" fill="#E2B970"/>
+          <circle cx="288" cy="313" r="6" fill="#F0D08F"/>
+          <path d="M232 300 q8 -16 18 -6 M262 296 q10 -14 18 -2" stroke="#7FA05A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- Talíř -->
+        <ellipse cx="250" cy="330" rx="140" ry="22" fill="#2a2827" stroke="url(#artGold)" stroke-width="4"/>
+        <ellipse cx="250" cy="326" rx="100" ry="13" fill="none" stroke="#C6953D" stroke-opacity=".5" stroke-width="2"/>
+        <ellipse cx="250" cy="372" rx="120" ry="10" fill="#000" opacity=".35"/>
+
+        <!-- Poklop, který se zvedá -->
+        <g class="cloche">
+          <path d="M140 322 a110 110 0 0 1 220 0 z" fill="#2f2d2c" stroke="url(#artGold)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M170 280 a90 90 0 0 1 60 -62" fill="none" stroke="#F0D08F" stroke-opacity=".55" stroke-width="5" stroke-linecap="round"/>
+          <rect x="235" y="196" width="30" height="16" rx="8" fill="url(#artGold)"/>
+          <circle cx="250" cy="192" r="11" fill="url(#artGold)"/>
+          <rect x="128" y="318" width="244" height="9" rx="4.5" fill="url(#artGold)"/>
+        </g>
+
+        <!-- Třpytky -->
+        <g fill="#F0D08F" class="sparks">
+          <path class="k1" d="M120 170 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z"/>
+          <path class="k2" d="M380 140 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+          <path class="k3" d="M395 300 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z"/>
+          <path class="k4" d="M100 330 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
+        </g>
+      </svg>
+    </div>
+    </div>
+  </section>
+
+  <!-- YESCHEF: co znamená každé písmeno -->
+  <section class="section acro" id="yeschef">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Co znamená YesChef</p>
+        <h2>Sedm písmen, jeden slib</h2>
+      </div>
+      <ol class="ac-list">
+        <li class="ac-item" style="--i:0">
+          <span class="ac-letter" aria-hidden="true">Y</span>
+          <span class="ac-word">Yes</span>
+          <span class="ac-text">Ano zážitku.</span>
+        </li>
+        <li class="ac-item" style="--i:1">
+          <span class="ac-letter" aria-hidden="true">E</span>
+          <span class="ac-word">Excellence</span>
+          <span class="ac-text">Výjimečná kvalita.</span>
+        </li>
+        <li class="ac-item" style="--i:2">
+          <span class="ac-letter" aria-hidden="true">S</span>
+          <span class="ac-word">Special</span>
+          <span class="ac-text">Každá akce je něčím speciální.</span>
+        </li>
+        <li class="ac-item" style="--i:3">
+          <span class="ac-letter" aria-hidden="true">C</span>
+          <span class="ac-word">Care</span>
+          <span class="ac-text">Staráme se o&nbsp;každý detail.</span>
+        </li>
+        <li class="ac-item" style="--i:4">
+          <span class="ac-letter" aria-hidden="true">H</span>
+          <span class="ac-word">Hospitality</span>
+          <span class="ac-text">Pohostinnost pro každého.</span>
+        </li>
+        <li class="ac-item" style="--i:5">
+          <span class="ac-letter" aria-hidden="true">E</span>
+          <span class="ac-word">Enjoy</span>
+          <span class="ac-text">Užijte si každý okamžik.</span>
+        </li>
+        <li class="ac-item" style="--i:6">
+          <span class="ac-letter" aria-hidden="true">F</span>
+          <span class="ac-word">Food</span>
+          <span class="ac-text">Jídlo, na které se nezapomíná.</span>
+        </li>
+      </ol>
+      <p class="ac-claim"><strong>YESCHEF</strong> <span>More than food. It’s an experience.</span></p>
+    </div>
+  </section>
+
+  <!-- VÍTEJTE: informace z původního webu -->
+  <section class="section section-dark" id="vitejte">
+    <div class="wrap welcome">
+      <div class="welcome-text">
+        <p class="kicker">Vítejte</p>
+        <h2>YesChef Vás vítá!</h2>
+        <p class="welcome-slogan">Ochutnáš, pochopíš!</p>
+        <p>Stránku YesChef založil neslyšící kuchař Michael Veselý, aby se podělil o&nbsp;recepty na zajímavá a&nbsp;chutná jídla. Vystudoval obor kuchař v&nbsp;Hradci Králové a&nbsp;jeho profese ho inspiruje ke sbírání rozmanitých zahraničních receptů.</p>
+        <p>YesChef zajišťuje kompletní cateringové služby na svatby, firemní akce, soukromé oslavy i&nbsp;kuchařské tábory, v&nbsp;ČR i&nbsp;v&nbsp;zahraničí. Každý detail přizpůsobíme vašim přáním, od menu až po prezentaci, aby byl zážitek výjimečný a&nbsp;nezapomenutelný.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/YesChef.Czech/" target="_blank" rel="noopener" class="social" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.5V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8v3h2.6V21h2.9z"/></svg></a>
+          <a href="https://www.instagram.com/yeschef_czech/" target="_blank" rel="noopener" class="social" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@yeschefczech7193" target="_blank" rel="noopener" class="social" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8 1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+        </div>
+      </div>
+      <div class="welcome-cards">
+        <div class="wcard">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 18h22a11 11 0 0 1-22 0Z"/><path d="M16 7v3M12 9l1 2M20 9l-1 2M3 18h26"/></svg>
+          <h3>Vaříme pro Vás!</h3>
+          <p>My se staráme, vy nemusíte!</p>
+        </div>
+        <div class="wcard">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 14a5 5 0 1 1 3-9 6 6 0 0 1 10 1 5 5 0 0 1 1 8"/><path d="M9 14v12h14V14"/><path d="M9 21h14"/></svg>
+          <h3>Český certifikovaný kuchař</h3>
+          <p>Vyučený kuchař z&nbsp;Hradce Králové.</p>
+        </div>
+        <div class="wcard">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M4 16h24M16 4c4 4 4 20 0 24M16 4c-4 4-4 20 0 24"/></svg>
+          <h3>Recepty z&nbsp;celého světa</h3>
+          <p>Zahraniční kuchyně na vašem stole.</p>
+        </div>
+        <a href="poptavka.html" class="wcard wcard-gold">
+          <h3>Ozvěte se nám</h3>
+          <p>Svatby, firemní akce, oslavy a&nbsp;kuchařské tábory.</p>
+          <span class="card-more">Poptat catering <i class="arrow"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO PROBÍHÁ -->
+  <section class="section" id="postup">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Jak to probíhá</p>
+        <h2>Od poptávky k&nbsp;hostině ve 4&nbsp;krocích</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="step-n">01</span><h3>Poptávka</h3><p>Napíšete typ akce, datum, místo a&nbsp;počet hostů.</p></li>
+        <li><span class="step-n">02</span><h3>Návrh menu</h3><p>Pošleme návrh menu a&nbsp;cenovou nabídku na míru.</p></li>
+        <li><span class="step-n">03</span><h3>Doladění</h3><p>Upravíme jídla, alergeny, obsluhu a&nbsp;harmonogram.</p></li>
+        <li><span class="step-n">04</span><h3>Den akce</h3><p>Přivezeme, připravíme, obsloužíme a&nbsp;uklidíme.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- VÝZVA K POPTÁVCE -->
+  <section class="cta-strip">
+    <div class="wrap cta-strip-in">
+      <div>
+        <p class="kicker">Plánujete akci?</p>
+        <h2>Pošleme vám menu na míru</h2>
+      </div>
+      <a href="poptavka.html" class="pill">Poptat catering <i class="arrow"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a href="./" class="brand"><img src="img/logo.png" alt="YesChef" width="54" height="54"><span>YesChef</span></a>
+    <nav class="foot-pages" aria-label="Stránky">
+      <a href="sluzby.html">Služby</a>
+      <a href="o-nas.html">O&nbsp;nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="video.html">Video</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html">Poptávka</a>
+    </nav>
+    <nav class="foot-links" aria-label="Sociální sítě">
+      <a href="https://www.facebook.com/YesChef.Czech/" target="_blank" rel="noopener" class="social" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.5V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8v3h2.6V21h2.9z"/></svg></a>
+      <a href="https://www.instagram.com/yeschef_czech/" target="_blank" rel="noopener" class="social" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a>
+      <a href="https://www.youtube.com/@yeschefczech7193" target="_blank" rel="noopener" class="social" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8 1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>IČO: 19955774 · © <span id="year">2026</span> YesChef</p>
+    <p>Web: <a href="https://dchweby.cz" target="_blank" rel="noopener">D.CH Weby od Davida</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

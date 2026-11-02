@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Služby – YesChef</title>
+<meta name="description" content="Catering na svatby, firemní akce, soukromé oslavy a kuchařské tábory.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <div class="top-in">
+    <a href="./" class="brand" aria-label="YesChef – úvod">
+      <img src="img/logo.png" alt="YesChef logo" width="54" height="54">
+      <span>YesChef</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="sluzby.html" class="active" aria-current="page">Služby</a>
+      <a href="o-nas.html">O&nbsp;nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="video.html">Video</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html" class="pill pill-sm nav-cta">Poptat catering <i class="arrow"></i></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ZÁHLAVÍ STRÁNKY -->
+  <section class="page-hero">
+    <canvas class="hero-glow" id="glow" aria-hidden="true"></canvas>
+    <div class="hero-shade"></div>
+    <div class="wrap page-hero-in">
+      <nav class="crumbs" aria-label="Drobečková navigace"><a href="./">Úvod</a><span>/</span><span>Služby</span></nav>
+      <p class="kicker">Naše služby</p>
+      <h1>Catering pro každou příležitost</h1>
+      <p class="page-lead">Menu, obsluhu i&nbsp;prezentaci přizpůsobíme vaší akci. Vy řeknete představu, my se postaráme o&nbsp;zbytek.</p>
+    </div>
+  </section>
+  <!-- SLUŽBY -->
+  <section class="section section-dark" id="sluzby">
+    <div class="wrap">
+      <div class="head-row">
+        <div class="head">
+          <p class="kicker">Naše služby</p>
+          <h2>Catering pro každou příležitost</h2>
+        </div>
+        <p class="head-note">Menu, obsluhu i&nbsp;prezentaci přizpůsobíme vaší akci. Vy řeknete představu, my se postaráme o&nbsp;zbytek.</p>
+      </div>
+
+      <div class="cards">
+        <a href="poptavka.html" class="card">
+          <div class="card-img" style="--img:url('img/svatby.jpg')"></div>
+          <div class="card-body">
+            <h3>Svatby</h3>
+            <p>Welcome drink, svatební menu i&nbsp;půlnoční raut.</p>
+            <span class="card-more">Poptat <i class="arrow"></i></span>
+          </div>
+        </a>
+        <a href="poptavka.html" class="card">
+          <div class="card-img" style="--img:url('img/firemni.jpg')"></div>
+          <div class="card-body">
+            <h3>Firemní akce</h3>
+            <p>Konference, večírky, otevření provozovny.</p>
+            <span class="card-more">Poptat <i class="arrow"></i></span>
+          </div>
+        </a>
+        <a href="poptavka.html" class="card">
+          <div class="card-img" style="--img:url('img/oslavy.jpg')"></div>
+          <div class="card-body">
+            <h3>Soukromé oslavy</h3>
+            <p>Narozeniny, výročí a&nbsp;rodinné sešlosti.</p>
+            <span class="card-more">Poptat <i class="arrow"></i></span>
+          </div>
+        </a>
+        <a href="poptavka.html" class="card">
+          <div class="card-img" style="--img:url('img/tabory.jpg')"></div>
+          <div class="card-body">
+            <h3>Kuchařské tábory</h3>
+            <p>Vaření pro tábory a&nbsp;kurzy, kde se i&nbsp;učí.</p>
+            <span class="card-more">Poptat <i class="arrow"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO PROBÍHÁ -->
+  <section class="section" id="postup">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Jak to probíhá</p>
+        <h2>Od poptávky k&nbsp;hostině ve 4&nbsp;krocích</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="step-n">01</span><h3>Poptávka</h3><p>Napíšete typ akce, datum, místo a&nbsp;počet hostů.</p></li>
+        <li><span class="step-n">02</span><h3>Návrh menu</h3><p>Pošleme návrh menu a&nbsp;cenovou nabídku na míru.</p></li>
+        <li><span class="step-n">03</span><h3>Doladění</h3><p>Upravíme jídla, alergeny, obsluhu a&nbsp;harmonogram.</p></li>
+        <li><span class="step-n">04</span><h3>Den akce</h3><p>Přivezeme, připravíme, obsloužíme a&nbsp;uklidíme.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- VÝZVA K POPTÁVCE -->
+  <section class="cta-strip">
+    <div class="wrap cta-strip-in">
+      <div>
+        <p class="kicker">Plánujete akci?</p>
+        <h2>Pošleme vám menu na míru</h2>
+      </div>
+      <a href="poptavka.html" class="pill">Poptat catering <i class="arrow"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a href="./" class="brand"><img src="img/logo.png" alt="YesChef" width="54" height="54"><span>YesChef</span></a>
+    <nav class="foot-pages" aria-label="Stránky">
+      <a href="sluzby.html">Služby</a>
+      <a href="o-nas.html">O&nbsp;nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="video.html">Video</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html">Poptávka</a>
+    </nav>
+    <nav class="foot-links" aria-label="Sociální sítě">
+      <a href="https://www.facebook.com/YesChef.Czech/" target="_blank" rel="noopener" class="social" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.5V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8v3h2.6V21h2.9z"/></svg></a>
+      <a href="https://www.instagram.com/yeschef_czech/" target="_blank" rel="noopener" class="social" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg></a>
+      <a href="https://www.youtube.com/@yeschefczech7193" target="_blank" rel="noopener" class="social" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8 1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>IČO: 19955774 · © <span id="year">2026</span> YesChef</p>
+    <p>Web: <a href="https://dchweby.cz" target="_blank" rel="noopener">D.CH Weby od Davida</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

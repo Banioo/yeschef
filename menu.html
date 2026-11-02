@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu – YesChef</title>
+<meta name="description" content="Ukázky menu YesChef: svatební menu, raut a firemní akce.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <div class="top-in">
+    <a href="./" class="brand" aria-label="YesChef – úvod">
+      <img src="img/logo.png" alt="YesChef logo" width="54" height="54">
+      <span>YesChef</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="sluzby.html">Služby</a>
+      <a href="menu.html" class="active" aria-current="page">Menu</a>
+      <a href="o-nas.html">O nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html" class="pill pill-sm nav-cta">Poptat catering <i class="arrow"></i></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ZÁHLAVÍ STRÁNKY -->
+  <section class="page-hero">
+    <canvas class="hero-glow" id="glow" aria-hidden="true"></canvas>
+    <div class="hero-shade"></div>
+    <div class="wrap page-hero-in">
+      <nav class="crumbs" aria-label="Drobečková navigace"><a href="./">Úvod</a><span>/</span><span>Menu</span></nav>
+      <p class="kicker">Ukázka menu</p>
+      <h1>Vyberte si styl hostiny</h1>
+      <p class="page-lead">Ukázky pro inspiraci. Každé menu sestavujeme na míru podle vás, počtu hostů a typu akce.</p>
+    </div>
+  </section>
+  <!-- MENU -->
+  <section class="section section-dark" id="menu">
+    <div class="wrap">
+      <div class="head head-center">
+        <p class="kicker">Ukázka menu</p>
+        <h2>Vyberte si styl hostiny</h2>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Typ menu">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="svatba" id="tab-svatba">Svatební menu</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="raut" id="tab-raut">Raut</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="firma" id="tab-firma">Firemní akce</button>
+      </div>
+
+      <div class="menu-panel active" data-panel="svatba" role="tabpanel" aria-labelledby="tab-svatba">
+        <div class="dish"><span class="dish-course">Předkrm</span><span class="dish-name">Hovězí tatarák, křupavý chléb, kapary</span><span class="dish-dots"></span><span class="dish-qty">80 g</span></div>
+        <div class="dish"><span class="dish-course">Polévka</span><span class="dish-name">Silný hovězí vývar s játrovými knedlíčky</span><span class="dish-dots"></span><span class="dish-qty">0,25 l</span></div>
+        <div class="dish"><span class="dish-course">Hlavní chod</span><span class="dish-name">Pomalu pečená hovězí líčka, bramborové pyré</span><span class="dish-dots"></span><span class="dish-qty">150 g</span></div>
+        <div class="dish"><span class="dish-course">Dezert</span><span class="dish-name">Čokoládový fondant, sezónní ovoce</span><span class="dish-dots"></span><span class="dish-qty">1 ks</span></div>
+      </div>
+      <div class="menu-panel" data-panel="raut" role="tabpanel" aria-labelledby="tab-raut" hidden>
+        <div class="dish"><span class="dish-course">Studené</span><span class="dish-name">Výběr sýrů a uzenin, chuťovky na lžičkách</span><span class="dish-dots"></span><span class="dish-qty">na osobu</span></div>
+        <div class="dish"><span class="dish-course">Teplé</span><span class="dish-name">Grilovaná kuřecí stehna, pečená zelenina</span><span class="dish-dots"></span><span class="dish-qty">na osobu</span></div>
+        <div class="dish"><span class="dish-course">Svět</span><span class="dish-name">Recepty ze zahraničních kuchyní podle sezóny</span><span class="dish-dots"></span><span class="dish-qty">dle výběru</span></div>
+        <div class="dish"><span class="dish-course">Sladké</span><span class="dish-name">Mini dezerty a ovocný stůl</span><span class="dish-dots"></span><span class="dish-qty">na osobu</span></div>
+      </div>
+      <div class="menu-panel" data-panel="firma" role="tabpanel" aria-labelledby="tab-firma" hidden>
+        <div class="dish"><span class="dish-course">Ráno</span><span class="dish-name">Coffee break, pečivo, ovoce</span><span class="dish-dots"></span><span class="dish-qty">na osobu</span></div>
+        <div class="dish"><span class="dish-course">Oběd</span><span class="dish-name">Dvouchodové menu nebo teplý bufet</span><span class="dish-dots"></span><span class="dish-qty">na osobu</span></div>
+        <div class="dish"><span class="dish-course">Večer</span><span class="dish-name">Finger food a raut na firemní večírek</span><span class="dish-dots"></span><span class="dish-qty">na osobu</span></div>
+      </div>
+
+      <p class="menu-note">Ukázka pro inspiraci. Každé menu sestavujeme na míru včetně alergenů.</p>
+    </div>
+  </section>
+
+  <!-- VÝZVA K POPTÁVCE -->
+  <section class="cta-strip">
+    <div class="wrap cta-strip-in">
+      <div>
+        <p class="kicker">Plánujete akci?</p>
+        <h2>Pošleme vám menu na míru</h2>
+      </div>
+      <a href="poptavka.html" class="pill">Poptat catering <i class="arrow"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a href="./" class="brand"><img src="img/logo.png" alt="YesChef" width="54" height="54"><span>YesChef</span></a>
+    <nav class="foot-pages" aria-label="Stránky">
+      <a href="sluzby.html">Služby</a>
+      <a href="menu.html">Menu</a>
+      <a href="o-nas.html">O nás</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="poptavka.html">Poptávka</a>
+    </nav>
+    <nav class="foot-links" aria-label="Sociální sítě">
+      <a href="https://www.facebook.com/YesChef.Czech/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/yeschef_czech/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@yeschefczech7193" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>IČO: 19955774 · © <span id="year">2026</span> YesChef</p>
+    <p>Web: <a href="https://dchweby.cz" target="_blank" rel="noopener">D.CH Weby od Davida</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
