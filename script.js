@@ -303,7 +303,7 @@ document.querySelectorAll('[data-yt]').forEach(box => {
       { f: 'hranolky1', x: 3,  y: 12, s: 150, r: -10, d: 1 },
       { f: 'hamburg',   x: 92, y: 78, s: 120, r: 8,   d: 2, m: 0 }
     ],
-    '.page-hero': [
+    '.page-hero:not(.page-hero-photo)': [
       { f: 'rajce',     x: 78, y: 22, s: 150, r: 10,  d: 1 },
       { f: 'listy',     x: 90, y: 58, s: 120, r: -20, d: 2, m: 0 },
       { f: 'paprika',   x: 66, y: 64, s: 90,  r: 25,  d: 2, m: 0 }
