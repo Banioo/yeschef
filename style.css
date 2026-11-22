@@ -2,12 +2,14 @@
    Layout: hero přes celou šířku s fotkou, střídání tmavých pásů,
    zaoblená zlatá tlačítka se šipkou. Jeden tmavý vzhled. */
 :root {
-  --night: #1B1A19;      /* nejtmavší pozadí */
-  --char: #242322;       /* sekce */
+  --night: #161514;      /* uhlová – nejtmavší pozadí (paleta) */
+  --char: #262423;       /* tmavý grafit – sekce a kartičky (paleta) */
+  --bronze: #8E6526;     /* bronz – stíny zlaté (paleta) */
   --slate: #404041;      /* šedá z loga */
   --gold: #C6953D;       /* zlatá z loga */
   --gold-hi: #E2B970;
-  --cream: #F3EDE3;      /* text */
+  --cream: #EFE6D3;      /* text (mezi šampaňskou a bílou, dobře čitelný) */
+  --champagne: #E9DCC2;  /* šampaňská (paleta) */
   --muted: #ADA597;
   --line: rgba(243, 237, 227, .12);
   --font: "Plus Jakarta Sans", "Segoe UI", Roboto, Arial, sans-serif;
@@ -98,7 +100,7 @@ p { margin: 0; }
 .hero {
   position: relative; overflow: hidden; isolation: isolate;
   padding-block: clamp(130px, 18vh, 190px) 70px;
-  background: radial-gradient(120% 90% at 85% 40%, #3a2a17 0%, #201c18 45%, var(--night) 75%);
+  background: transparent;
 }
 .hero-glow { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -3; }
 .hero-photo {
@@ -108,7 +110,7 @@ p { margin: 0; }
 .hero-shade {
   position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(90deg, rgba(20,19,18,.94) 0%, rgba(20,19,18,.75) 42%, rgba(20,19,18,.15) 100%),
+    linear-gradient(90deg, rgba(22,21,20,.72) 0%, rgba(22,21,20,.45) 42%, rgba(22,21,20,0) 100%),
     linear-gradient(0deg, var(--night) 0%, transparent 30%);
 }
 .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
@@ -134,7 +136,7 @@ p { margin: 0; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes lift {
   0%, 12%   { transform: translate(0, 0) rotate(0); }
-  28%, 70%  { transform: translate(18px, -96px) rotate(14deg); }
+  28%, 70%  { transform: translate(30px, -150px) rotate(16deg); }
   86%, 100% { transform: translate(0, 0) rotate(0); }
 }
 @keyframes steam {
@@ -194,8 +196,8 @@ p { margin: 0; }
 }
 
 /* Sekce */
-.section { padding-block: clamp(70px, 10vw, 120px); background: var(--night); }
-.section-dark { background: var(--char); }
+.section { padding-block: clamp(70px, 10vw, 120px); background: transparent; }
+.section-dark { background: rgba(38, 36, 35, .55); }
 .head { display: grid; gap: 14px; justify-items: start; max-width: 620px; }
 .head-center { justify-items: center; text-align: center; margin: 0 auto 44px; }
 .head-row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 46px; }
@@ -285,9 +287,9 @@ p { margin: 0; }
 .steps p { color: var(--muted); font-size: .95rem; }
 
 /* Poptávka */
-.cta-band { position: relative; isolation: isolate; padding-block: clamp(70px, 10vw, 120px); overflow: hidden; background: var(--night); }
-.cta-photo { position: absolute; inset: 0; z-index: -2; background: radial-gradient(80% 80% at 10% 20%, #3a2a17, var(--night) 70%); }
-.cta-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(20,19,18,.78); }
+.cta-band { position: relative; isolation: isolate; padding-block: clamp(70px, 10vw, 120px); overflow: hidden; background: transparent; }
+.cta-photo { position: absolute; inset: 0; z-index: -2; background: transparent; }
+.cta-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(22,21,20,.35); }
 .cta-in { display: grid; grid-template-columns: 1fr 1.25fr; gap: 60px; align-items: start; }
 .cta-text { display: grid; gap: 18px; justify-items: start; min-width: 0; }
 .cta-text > p:not(.kicker) { color: #D6CFC3; font-size: 1.05rem; }
@@ -314,7 +316,7 @@ p { margin: 0; }
 .form-msg { font-size: .92rem; color: var(--gold-hi); }
 
 /* Patička */
-.foot { background: var(--night); border-top: 1px solid var(--line); }
+.foot { background: rgba(22,21,20,.7); border-top: 1px solid var(--line); }
 .foot-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-block: 36px; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 28px; }
 .foot-links a { text-decoration: none; font-weight: 600; transition: color .2s; }
@@ -397,10 +399,10 @@ p { margin: 0; }
 .page-hero {
   position: relative; overflow: hidden; isolation: isolate;
   padding-block: clamp(140px, 18vw, 190px) clamp(60px, 8vw, 90px);
-  background: radial-gradient(110% 120% at 85% 20%, #3a2a17 0%, #201c18 45%, var(--night) 75%);
+  background: transparent;
   border-bottom: 1px solid var(--line);
 }
-.page-hero .hero-shade { background: linear-gradient(90deg, rgba(20,19,18,.85) 0%, rgba(20,19,18,.3) 100%); }
+.page-hero .hero-shade { background: linear-gradient(90deg, rgba(22,21,20,.6) 0%, rgba(22,21,20,0) 100%); }
 .page-hero-in { display: grid; gap: 18px; justify-items: start; }
 .page-hero h1 { font-size: clamp(2.3rem, 5.6vw, 4.2rem); max-width: 14em; }
 .page-lead { font-size: 1.1rem; color: #D6CFC3; max-width: 36em; }
@@ -505,7 +507,7 @@ h1, h2 { word-spacing: .04em; }
 .hero h1 { word-spacing: .07em; }
 
 /* ===== Úvod: YESCHEF – co znamená každé písmeno ===== */
-.acro { background: var(--night); border-top: 1px solid var(--line); }
+.acro { background: transparent; border-top: 1px solid var(--line); }
 .ac-list {
   list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: repeat(7, 1fr);
@@ -768,3 +770,147 @@ h1, h2 { word-spacing: .04em; }
   font-size: .85rem; font-weight: 600; color: #D6CFC3;
 }
 @media (max-width: 640px) { .video-hint { display: none; } .video-logo { display: none; } }
+
+
+/* ===== Animované pozadí celého webu (barvy z palety YesChef) ===== */
+.bg-anim {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  z-index: -1; pointer-events: none; display: block;
+}
+/* jemné zrno přes pozadí, aby přechody nevypadaly ploše */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .5;
+  background-image: radial-gradient(rgba(233,220,194,.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* ===== Úvod s fotkou: fotka se pomalu přibližuje, přes ni plují zlatá světla ===== */
+.hero-has-photo .hero-art { display: none; }
+.hero-has-photo .hero-grid { grid-template-columns: 1fr; }
+.hero-has-photo .hero-photo {
+  background-position: 65% center;
+  animation: heroZoom 24s ease-in-out infinite alternate;
+  transform-origin: 70% 50%;
+}
+.hero-has-photo .hero-shade {
+  background:
+    linear-gradient(90deg, rgba(22,21,20,.92) 0%, rgba(22,21,20,.72) 38%, rgba(22,21,20,.15) 75%, rgba(22,21,20,.05) 100%),
+    linear-gradient(0deg, var(--night) 0%, transparent 28%);
+}
+/* zlatá světla nad fotkou */
+.hero-has-photo .hero-glow { z-index: 0; mix-blend-mode: screen; pointer-events: none; }
+.hero-has-photo .hero-grid { position: relative; z-index: 1; }
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12) translateX(-1.5%); }
+}
+@media (max-width: 640px) {
+  .hero-has-photo .hero-photo { background-position: 70% center; }
+  .hero-has-photo .hero-shade {
+    background: linear-gradient(180deg, rgba(22,21,20,.6) 0%, rgba(22,21,20,.8) 55%, var(--night) 100%);
+  }
+}
+.hero-has-photo .hero-in { max-width: 700px; }
+.hero-has-photo .hero-in h1 { max-width: 11em; }
+
+/* Fotka v úvodu: prkénko s masem vpravo, vlevo tmavý kámen pod textem */
+.hero-has-photo .hero-photo {
+  background-color: #1a1817;
+  background-size: auto 112%;
+  background-position: right -4vw center;
+}
+.hero-has-photo .hero-shade {
+  background:
+    linear-gradient(90deg, rgba(22,21,20,.96) 0%, rgba(22,21,20,.82) 30%, rgba(22,21,20,.35) 55%, rgba(22,21,20,0) 80%),
+    linear-gradient(0deg, var(--night) 0%, transparent 25%);
+}
+@media (max-width: 1000px) {
+  .hero-has-photo .hero-photo { background-size: cover; background-position: 70% center; }
+}
+@media (max-width: 640px) {
+  .hero-has-photo .hero-shade {
+    background: linear-gradient(180deg, rgba(22,21,20,.55) 0%, rgba(22,21,20,.8) 55%, var(--night) 100%);
+  }
+}
+
+/* Na počítači je fotka jen v pravé části a doleva se rozplyne do tmy, text je na čistém pozadí */
+@media (min-width: 1001px) {
+  .hero-has-photo .hero-photo {
+    left: 40%; background-size: cover; background-position: 35% center;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+  }
+  .hero-has-photo .hero-shade {
+    background: linear-gradient(0deg, var(--night) 0%, transparent 22%), linear-gradient(90deg, rgba(22,21,20,.35), transparent 60%);
+  }
+}
+
+/* Animace s poklopem nad sekcí YESCHEF */
+.acro-art { max-width: 300px; margin: -20px auto 10px; justify-self: auto; }
+@media (max-width: 640px) { .acro-art { max-width: 230px; } }
+
+/* ===== Plovoucí ilustrace jídla ===== */
+.has-deco { position: relative; overflow: hidden; }
+.has-deco > .wrap, .has-deco > .hero-grid { position: relative; z-index: 1; }
+.page-hero .page-hero-in { position: relative; z-index: 1; }
+.deco { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.deco-item { position: absolute; width: var(--s); will-change: transform; }
+.deco-item img {
+  width: 100%; height: auto; display: block;
+  transform: rotate(var(--r, 0deg));
+  filter: drop-shadow(0 18px 24px rgba(0,0,0,.45));
+  animation: decoFloat 8s ease-in-out infinite;
+}
+.deco-d2 img { filter: drop-shadow(0 12px 18px rgba(0,0,0,.5)) blur(1.2px) brightness(.8); opacity: .75; }
+@keyframes decoFloat {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50%      { transform: translateY(-16px) rotate(calc(var(--r, 0deg) + 6deg)); }
+}
+/* tablet a mobil: menší a jen některé */
+@media (max-width: 1000px) { .deco-item { width: calc(var(--s) * .7); } }
+@media (max-width: 640px)  {
+  .deco-item { width: calc(var(--s) * .5); }
+  .deco-hide-m { display: none; }
+  .deco-item img { opacity: .55; }
+}
+
+/* Logo pod poklopem: při zvednutí jemně zazáří */
+.art-logo-in { transform-box: fill-box; transform-origin: center bottom; animation: logoReveal 6s ease-in-out infinite; filter: drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
+@keyframes logoReveal {
+  0%, 16%   { transform: scale(.85); opacity: 0; }
+  32%, 66%  { transform: scale(1); opacity: 1; }
+  84%, 100% { transform: scale(.85); opacity: 0; }
+}
+
+/* Oprava: obrysová písmena a čísla ukazovala čáry uvnitř (překrývající se tvary písma).
+   Místo obrysu je teď plná zlatá s přechodem, bez vnitřních čar. */
+.ac-letter, .step-n {
+  -webkit-text-stroke: 0;
+  color: transparent;
+  background: linear-gradient(180deg, #E9C987 0%, #C6953D 50%, #8E6526 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.ac-letter { animation: acShine 9.8s ease-in-out infinite; animation-delay: calc(var(--i) * 1.4s); }
+.ac-item:hover .ac-letter { color: transparent; filter: brightness(1.3) drop-shadow(0 0 14px rgba(226,185,112,.45)); }
+@keyframes acShine {
+  0%, 8%, 100% { filter: brightness(.85); }
+  4%           { filter: brightness(1.45) drop-shadow(0 0 16px rgba(226,185,112,.55)); }
+}
+
+/* ===== Ilustrace jídla plavou jako medúza =====
+   Stáhne se (užší a vyšší) → vystřelí nahoru → roztáhne se (širší, plošší)
+   → pomalu klesá zpátky a přitom se kolébá do stran. */
+.deco-item img {
+  transform-origin: 50% 30%;
+  animation-name: jellyfish;
+  animation-timing-function: cubic-bezier(.45, 0, .55, 1);
+  animation-iteration-count: infinite;
+}
+@keyframes jellyfish {
+  0%   { transform: translate(0, 0)        rotate(var(--r, 0deg))                scale(1.08, .92); }
+  12%  { transform: translate(-3px, 6px)   rotate(calc(var(--r, 0deg) - 3deg))   scale(.86, 1.14); }
+  30%  { transform: translate(6px, -44px)  rotate(calc(var(--r, 0deg) + 5deg))   scale(.94, 1.06); }
+  45%  { transform: translate(8px, -54px)  rotate(calc(var(--r, 0deg) + 2deg))   scale(1.1, .9); }
+  70%  { transform: translate(-6px, -26px) rotate(calc(var(--r, 0deg) - 4deg))   scale(1.04, .96); }
+  100% { transform: translate(0, 0)        rotate(var(--r, 0deg))                scale(1.08, .92); }
+}

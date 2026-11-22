@@ -167,3 +167,160 @@ document.querySelectorAll('[data-yt]').forEach(box => {
     box.appendChild(frame);
   });
 });
+
+// ===== Animované pozadí celého webu =====
+// Velké zlaté a bronzové záře pomalu plují po stránce a nahoru stoupají drobné zlaté jiskry.
+(function () {
+  const cv = document.createElement('canvas');
+  cv.className = 'bg-anim';
+  cv.setAttribute('aria-hidden', 'true');
+  document.body.prepend(cv);
+  const g = cv.getContext('2d');
+
+  // barvy z palety: zlatá, bronz, šampaňská, grafit z loga
+  const glows = [
+    { c: [198, 149, 61], a: .30, r: .55, x: .08, y: .18, sx: .00011, sy: .00007, p: 0 },
+    { c: [142, 101, 38], a: .32, r: .60, x: .92, y: .30, sx: .00008, sy: .00010, p: 1.7 },
+    { c: [226, 185, 112], a: .16, r: .42, x: .70, y: .85, sx: .00012, sy: .00006, p: 3.1 },
+    { c: [64, 64, 65],   a: .55, r: .70, x: .35, y: .55, sx: .00006, sy: .00009, p: 4.4 },
+    { c: [142, 101, 38], a: .22, r: .45, x: .15, y: .90, sx: .00009, sy: .00012, p: 5.2 }
+  ];
+  let W = 0, H = 0, sparks = [];
+  const SCALE = 0.5; // pozadí je rozmazané, stačí nižší rozlišení = rychlejší
+
+  function size() {
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * SCALE); cv.height = Math.round(H * SCALE);
+    const n = Math.round(Math.min(60, (W * H) / 26000));
+    sparks = Array.from({ length: n }, () => newSpark(true));
+  }
+  function newSpark(anywhere) {
+    return {
+      x: Math.random() * W,
+      y: anywhere ? Math.random() * H : H + 10,
+      r: .6 + Math.random() * 1.8,
+      v: .15 + Math.random() * .45,
+      d: (Math.random() - .5) * .25,
+      a: .25 + Math.random() * .55,
+      t: Math.random() * Math.PI * 2
+    };
+  }
+
+  let last = 0;
+  function frame(t) {
+    requestAnimationFrame(frame);
+    if (document.hidden || t - last < 33) return; // cca 30 snímků za sekundu
+    last = t;
+    g.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+    g.fillStyle = '#161514';
+    g.fillRect(0, 0, W, H);
+
+    const big = Math.max(W, H);
+    g.globalCompositeOperation = 'lighter';
+    glows.forEach(o => {
+      const x = (o.x + Math.sin(t * o.sx + o.p) * .18) * W;
+      const y = (o.y + Math.cos(t * o.sy + o.p) * .15) * H;
+      const r = o.r * big * (0.9 + 0.1 * Math.sin(t * .0004 + o.p));
+      const gr = g.createRadialGradient(x, y, 0, x, y, r);
+      gr.addColorStop(0, `rgba(${o.c},${o.a})`);
+      gr.addColorStop(1, `rgba(${o.c},0)`);
+      g.fillStyle = gr;
+      g.fillRect(0, 0, W, H);
+    });
+
+    sparks.forEach((s, i) => {
+      s.y -= s.v; s.x += s.d + Math.sin(t * .001 + s.t) * .15;
+      if (s.y < -10) sparks[i] = newSpark(false);
+      const tw = s.a * (.6 + .4 * Math.sin(t * .003 + s.t));
+      g.fillStyle = `rgba(226,185,112,${tw})`;
+      g.beginPath(); g.arc(s.x, s.y, s.r, 0, Math.PI * 2); g.fill();
+    });
+    g.globalCompositeOperation = 'source-over';
+  }
+
+  size();
+  window.addEventListener('resize', size);
+  requestAnimationFrame(frame);
+})();
+
+// ===== Plovoucí ilustrace jídla (Michaelovy obrázky) =====
+// Obrázky jsou ve složce img/jidlo. Tady se nastavuje, kde které jsou:
+// x a y = pozice v procentech sekce, s = velikost v px, r = natočení, d = hloubka
+// (1 = blízko, ostré; 2 = dál, menší a rozmazané), m = 0 znamená na mobilu skrýt.
+(function () {
+  const sady = {
+    '#yeschef':  [
+      { f: 'pizza',     x: 2,  y: 8,  s: 170, r: -18, d: 1 },
+      { f: 'rajce2',    x: 88, y: 6,  s: 130, r: 12,  d: 1 },
+      { f: 'zampion',   x: 93, y: 88, s: 90,  r: 20,  d: 2, m: 0 },
+      { f: 'listy',     x: 3,  y: 86, s: 110, r: 30,  d: 2, m: 0 }
+    ],
+    '#vitejte':  [
+      { f: 'papriky2',  x: 90, y: 4,  s: 130, r: 14,  d: 2 },
+      { f: 'salam',     x: 46, y: 82, s: 80,  r: -25, d: 2, m: 0 }
+    ],
+    '#postup':   [
+      { f: 'hranolky1', x: 3,  y: 12, s: 150, r: -10, d: 1 },
+      { f: 'hamburg',   x: 92, y: 78, s: 120, r: 8,   d: 2, m: 0 }
+    ],
+    '.page-hero': [
+      { f: 'rajce',     x: 78, y: 22, s: 150, r: 10,  d: 1 },
+      { f: 'listy',     x: 90, y: 58, s: 120, r: -20, d: 2, m: 0 },
+      { f: 'paprika',   x: 66, y: 64, s: 90,  r: 25,  d: 2, m: 0 }
+    ],
+    '.cta-page': [
+      { f: 'pizza',     x: 2,  y: 70, s: 130, r: 20,  d: 2, m: 0 },
+      { f: 'zampion',   x: 40, y: 6,  s: 80,  r: -15, d: 2, m: 0 }
+    ],
+    '#zkusenosti': [
+      { f: 'papriky1',  x: 92, y: 4,  s: 110, r: -12, d: 2, m: 0 }
+    ],
+    '#galerie':  [
+      { f: 'parekvrohliku', x: 88, y: 6, s: 120, r: -8, d: 2, m: 0 }
+    ]
+  };
+
+  const prvky = [];
+  Object.entries(sady).forEach(([sel, polozky]) => {
+    document.querySelectorAll(sel).forEach(sekce => {
+      sekce.classList.add('has-deco');
+      const vrstva = document.createElement('div');
+      vrstva.className = 'deco';
+      vrstva.setAttribute('aria-hidden', 'true');
+      polozky.forEach((p, i) => {
+        const obal = document.createElement('span');
+        obal.className = 'deco-item deco-d' + (p.d || 1) + (p.m === 0 ? ' deco-hide-m' : '');
+        obal.style.left = p.x + '%';
+        obal.style.top = p.y + '%';
+        obal.style.setProperty('--s', p.s + 'px');
+        const img = document.createElement('img');
+        img.src = 'img/jidlo/' + p.f + '.webp';
+        img.alt = '';
+        img.loading = 'lazy';
+        img.style.setProperty('--r', (p.r || 0) + 'deg');
+        img.style.animationDuration = (7 + ((i * 1.7) % 5)) + 's';
+        img.style.animationDelay = (-i * 1.3) + 's';
+        obal.appendChild(img);
+        vrstva.appendChild(obal);
+        prvky.push({ el: obal, sekce, rychlost: p.d === 2 ? .06 : .14 });
+      });
+      sekce.prepend(vrstva);
+    });
+  });
+
+  // Parallax: při scrollování se ilustrace posouvají jinou rychlostí než text
+  let ceka = false;
+  function posun() {
+    ceka = false;
+    const vh = window.innerHeight;
+    prvky.forEach(o => {
+      const r = o.sekce.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const stred = r.top + r.height / 2 - vh / 2;
+      o.el.style.transform = `translate3d(0, ${(-stred * o.rychlost).toFixed(1)}px, 0)`;
+    });
+  }
+  window.addEventListener('scroll', () => { if (!ceka) { ceka = true; requestAnimationFrame(posun); } }, { passive: true });
+  window.addEventListener('resize', posun);
+  posun();
+})();

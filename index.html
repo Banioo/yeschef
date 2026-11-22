@@ -35,7 +35,7 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero" id="uvod">
+  <section class="hero hero-has-photo" id="uvod">
     <canvas class="hero-glow" id="glow" aria-hidden="true"></canvas>
     <div class="hero-photo" role="img" aria-label="Raut YesChef"></div>
     <div class="hero-shade"></div>
@@ -67,7 +67,14 @@
     </div>
 
     <!-- Animovaná ilustrace: poklop se zvedá, z jídla stoupá pára -->
-    <div class="hero-art" aria-hidden="true">
+
+    </div>
+  </section>
+
+  <!-- YESCHEF: co znamená každé písmeno -->
+  <section class="section acro" id="yeschef">
+    <div class="wrap">
+      <div class="hero-art acro-art" aria-hidden="true">
       <svg viewBox="0 0 500 500" class="art">
         <defs>
           <radialGradient id="artGlow" cx="50%" cy="55%" r="50%">
@@ -88,30 +95,17 @@
         <g class="art-ring">
           <circle cx="250" cy="250" r="225" fill="none" stroke="#C6953D" stroke-opacity=".25" stroke-dasharray="2 8"/>
           <text font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="7" fill="#C6953D" fill-opacity=".85">
-            <textPath href="#ringPath" textLength="1270" lengthAdjust="spacing">YES CHEF · CATERING · SVATBY · FIREMNÍ AKCE · OSLAVY · KUCHAŘSKÉ TÁBORY · </textPath>
+            <textPath href="#ringPath" textLength="1270" lengthAdjust="spacing">YESCHEF · CATERING · SVATBY · FIREMNÍ AKCE · OSLAVY · KUCHAŘSKÉ TÁBORY · </textPath>
           </text>
-        </g>
-
-        <!-- Pára -->
-        <g class="steam" fill="none" stroke="#F3EDE3" stroke-width="3" stroke-linecap="round">
-          <path class="s1" d="M215 300 c-14 -22 14 -36 0 -58 c-14 -22 14 -36 0 -58"/>
-          <path class="s2" d="M250 300 c-14 -22 14 -36 0 -58 c-14 -22 14 -36 0 -58"/>
-          <path class="s3" d="M285 300 c-14 -22 14 -36 0 -58 c-14 -22 14 -36 0 -58"/>
-        </g>
-
-        <!-- Jídlo na talíři -->
-        <g class="dish">
-          <path d="M175 322 q75 -42 150 0 z" fill="url(#artGold)" opacity=".9"/>
-          <circle cx="215" cy="312" r="7" fill="#F0D08F"/>
-          <circle cx="252" cy="302" r="9" fill="#E2B970"/>
-          <circle cx="288" cy="313" r="6" fill="#F0D08F"/>
-          <path d="M232 300 q8 -16 18 -6 M262 296 q10 -14 18 -2" stroke="#7FA05A" stroke-width="3" fill="none" stroke-linecap="round"/>
         </g>
 
         <!-- Talíř -->
         <ellipse cx="250" cy="330" rx="140" ry="22" fill="#2a2827" stroke="url(#artGold)" stroke-width="4"/>
         <ellipse cx="250" cy="326" rx="100" ry="13" fill="none" stroke="#C6953D" stroke-opacity=".5" stroke-width="2"/>
         <ellipse cx="250" cy="372" rx="120" ry="10" fill="#000" opacity=".35"/>
+
+        <!-- Logo YesChef na talíři (odhalí se, když se zvedne poklop) -->
+        <image class="art-logo-in" href="img/logo.png" x="180" y="186" width="140" height="140"/>
 
         <!-- Poklop, který se zvedá -->
         <g class="cloche">
@@ -131,12 +125,6 @@
         </g>
       </svg>
     </div>
-    </div>
-  </section>
-
-  <!-- YESCHEF: co znamená každé písmeno -->
-  <section class="section acro" id="yeschef">
-    <div class="wrap">
       <div class="head head-center">
         <p class="kicker">Co znamená YesChef</p>
         <h2>Sedm písmen, jeden slib</h2>
