@@ -914,3 +914,15 @@ body::after {
   70%  { transform: translate(-6px, -26px) rotate(calc(var(--r, 0deg) - 4deg))   scale(1.04, .96); }
   100% { transform: translate(0, 0)        rotate(var(--r, 0deg))                scale(1.08, .92); }
 }
+
+/* Vlastní pozadí YesChef (tmavá břidlice od Michaela) pod animací */
+.bg-texture {
+  position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background: #1B1919 url("img/pozadi.webp") center / cover no-repeat;
+}
+
+/* Pozadí víc vidět: výraznější textura, průhlednější sekce */
+.bg-texture { filter: contrast(1.6) brightness(1.35); }
+.section-dark { background: rgba(38, 36, 35, .22); }
+.foot { background: rgba(22, 21, 20, .45); }
+.cta-band::after { background: rgba(22, 21, 20, .15); }

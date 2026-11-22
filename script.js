@@ -171,6 +171,10 @@ document.querySelectorAll('[data-yt]').forEach(box => {
 // ===== Animované pozadí celého webu =====
 // Velké zlaté a bronzové záře pomalu plují po stránce a nahoru stoupají drobné zlaté jiskry.
 (function () {
+  const textura = document.createElement('div');
+  textura.className = 'bg-texture';
+  textura.setAttribute('aria-hidden', 'true');
+  document.body.prepend(textura);
   const cv = document.createElement('canvas');
   cv.className = 'bg-anim';
   cv.setAttribute('aria-hidden', 'true');
@@ -178,20 +182,52 @@ document.querySelectorAll('[data-yt]').forEach(box => {
   const g = cv.getContext('2d');
 
   // barvy z palety: zlatá, bronz, šampaňská, grafit z loga
-  const glows = [
-    { c: [198, 149, 61], a: .30, r: .55, x: .08, y: .18, sx: .00011, sy: .00007, p: 0 },
-    { c: [142, 101, 38], a: .32, r: .60, x: .92, y: .30, sx: .00008, sy: .00010, p: 1.7 },
-    { c: [226, 185, 112], a: .16, r: .42, x: .70, y: .85, sx: .00012, sy: .00006, p: 3.1 },
-    { c: [64, 64, 65],   a: .55, r: .70, x: .35, y: .55, sx: .00006, sy: .00009, p: 4.4 },
-    { c: [142, 101, 38], a: .22, r: .45, x: .15, y: .90, sx: .00009, sy: .00012, p: 5.2 }
-  ];
+  // Každá stránka má jiné pozadí (jinou náladu), barvy jsou pořád z palety YesChef.
+  // c = barva, a = síla, r = velikost, x/y = výchozí místo, sx/sy = rychlost pohybu
+  const G = [198, 149, 61], B = [142, 101, 38], L = [226, 185, 112], S = [64, 64, 65], C = [233, 220, 194], R = [120, 52, 30];
+  const nalady = {
+    // Úvod: zlatá a bronzová záře ze stran (jako paleta)
+    uvod:    { zaklad: '#161514', jiskry: 1,   barvaJisker: L, glows: [
+      { c: G, a: .30, r: .55, x: .08, y: .18 }, { c: B, a: .32, r: .60, x: .92, y: .30 },
+      { c: L, a: .16, r: .42, x: .70, y: .85 }, { c: S, a: .55, r: .70, x: .35, y: .55 }, { c: B, a: .22, r: .45, x: .15, y: .90 } ] },
+    // Služby: teplá jantarová, jako světlo nad rautem
+    sluzby:  { zaklad: '#1a1511', jiskry: 1.2, barvaJisker: L, glows: [
+      { c: L, a: .26, r: .50, x: .50, y: .05 }, { c: G, a: .30, r: .55, x: .15, y: .60 },
+      { c: B, a: .34, r: .60, x: .85, y: .70 }, { c: R, a: .18, r: .45, x: .60, y: .95 } ] },
+    // O nás: klidný grafit s bronzem, jako dřevo a kov v kuchyni
+    onas:    { zaklad: '#151515', jiskry: .6,  barvaJisker: C, glows: [
+      { c: S, a: .70, r: .75, x: .30, y: .30 }, { c: B, a: .30, r: .55, x: .90, y: .15 },
+      { c: G, a: .18, r: .45, x: .10, y: .85 }, { c: S, a: .50, r: .60, x: .75, y: .75 } ] },
+    // Galerie: hluboká tma se silnou zlatou září uprostřed, jako bodové světlo
+    galerie: { zaklad: '#100f0e', jiskry: 1.4, barvaJisker: L, glows: [
+      { c: G, a: .34, r: .50, x: .50, y: .45 }, { c: L, a: .14, r: .35, x: .25, y: .20 },
+      { c: B, a: .26, r: .50, x: .80, y: .85 } ] },
+    // Video: kino – tma a pomalé světelné kužele ze stran
+    video:   { zaklad: '#0f0e0d', jiskry: .5,  barvaJisker: C, glows: [
+      { c: L, a: .20, r: .45, x: .00, y: .10 }, { c: L, a: .20, r: .45, x: 1.0, y: .10 },
+      { c: S, a: .60, r: .70, x: .50, y: .70 }, { c: B, a: .22, r: .40, x: .50, y: 1.0 } ] },
+    // Kontakt: světlá šampaňská, přívětivá
+    kontakt: { zaklad: '#1b1917', jiskry: .8,  barvaJisker: C, glows: [
+      { c: C, a: .12, r: .55, x: .75, y: .20 }, { c: G, a: .22, r: .50, x: .20, y: .40 },
+      { c: S, a: .55, r: .65, x: .55, y: .80 } ] },
+    // Poptávka: sytá zlatá, slavnostní
+    poptavka:{ zaklad: '#18130d', jiskry: 1.6, barvaJisker: L, glows: [
+      { c: G, a: .36, r: .60, x: .85, y: .25 }, { c: L, a: .20, r: .45, x: .15, y: .15 },
+      { c: B, a: .34, r: .60, x: .30, y: .85 }, { c: R, a: .14, r: .40, x: .95, y: .90 } ] }
+  };
+  const soubor = (location.pathname.split('/').pop() || 'index.html').replace('.html', '');
+  const mapa = { '': 'uvod', index: 'uvod', sluzby: 'sluzby', 'o-nas': 'onas', galerie: 'galerie', video: 'video', kontakt: 'kontakt', poptavka: 'poptavka' };
+  const nalada = nalady[document.body.dataset.pozadi] || nalady[mapa[soubor]] || nalady.uvod;
+  const glows = nalada.glows.map((o, i) => Object.assign({
+    sx: .00006 + (i % 3) * .00003, sy: .00007 + ((i + 1) % 3) * .00002, p: i * 1.3
+  }, o));
   let W = 0, H = 0, sparks = [];
   const SCALE = 0.5; // pozadí je rozmazané, stačí nižší rozlišení = rychlejší
 
   function size() {
     W = window.innerWidth; H = window.innerHeight;
     cv.width = Math.round(W * SCALE); cv.height = Math.round(H * SCALE);
-    const n = Math.round(Math.min(60, (W * H) / 26000));
+    const n = Math.round(Math.min(80, (W * H) / 26000 * nalada.jiskry));
     sparks = Array.from({ length: n }, () => newSpark(true));
   }
   function newSpark(anywhere) {
@@ -212,8 +248,12 @@ document.querySelectorAll('[data-yt]').forEach(box => {
     if (document.hidden || t - last < 33) return; // cca 30 snímků za sekundu
     last = t;
     g.setTransform(SCALE, 0, 0, SCALE, 0, 0);
-    g.fillStyle = '#161514';
+    // pod animací je Michaelovo vlastní pozadí (img/pozadi.webp), tady jen jemný barevný nádech stránky
+    g.clearRect(0, 0, W, H);
+    g.globalAlpha = .12;
+    g.fillStyle = nalada.zaklad;
     g.fillRect(0, 0, W, H);
+    g.globalAlpha = 1;
 
     const big = Math.max(W, H);
     g.globalCompositeOperation = 'lighter';
@@ -232,7 +272,7 @@ document.querySelectorAll('[data-yt]').forEach(box => {
       s.y -= s.v; s.x += s.d + Math.sin(t * .001 + s.t) * .15;
       if (s.y < -10) sparks[i] = newSpark(false);
       const tw = s.a * (.6 + .4 * Math.sin(t * .003 + s.t));
-      g.fillStyle = `rgba(226,185,112,${tw})`;
+      g.fillStyle = `rgba(${nalada.barvaJisker},${tw})`;
       g.beginPath(); g.arc(s.x, s.y, s.r, 0, Math.PI * 2); g.fill();
     });
     g.globalCompositeOperation = 'source-over';
