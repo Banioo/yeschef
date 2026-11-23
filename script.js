@@ -71,6 +71,7 @@ function resize() {
 }
 
 function draw(t) {
+  if (canvas.offsetWidth === 0) { requestAnimationFrame(draw); return; } // na mobilu skryté
   const w = canvas.width, h = canvas.height;
   ctx.clearRect(0, 0, w, h);
   const H = canvas.getBoundingClientRect().height;
@@ -249,6 +250,7 @@ document.querySelectorAll('[data-yt]').forEach(box => {
   let cas = 0;
   function frame(now) {
     requestAnimationFrame(frame);
+    if (cv.offsetWidth === 0) return;    // na mobilu je skryté – nic nekreslit
     if (document.hidden || now - last < FRAME) return;
     const dt = Math.min(now - last, 70);   // po pauze žádný skok dopředu
     last = now;

@@ -1138,3 +1138,8 @@ html, body { overscroll-behavior-y: none; }
   /* zlatá světla jen jemně, ať nepřebíjejí */
   .bg-anim { opacity: .6; }
 }
+
+/* Mobil: bez zlatých světel a teček (zůstávají jen na počítači) */
+@media (max-width: 1000px), (pointer: coarse) {
+  .bg-anim, .hero-glow { display: none !important; }
+}
