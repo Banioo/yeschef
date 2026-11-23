@@ -1125,3 +1125,16 @@ html, body { overscroll-behavior-y: none; }
 /* Pozadí má pevnou výšku obrazovky – když se na iPhonu schová lišta Safari,
    nic se neroztahuje a animace neposkočí */
 .bg-anim, .bg-texture { inset: 0 0 auto 0; height: 100vh; height: 100lvh; }
+
+/* Mobil: textura pozadí jede při scrollování spolu se stránkou.
+   Dřív stála na místě a obsah po ní ujížděl, takže to na telefonu vypadalo,
+   jako by animace běžela moc rychle. */
+@media (max-width: 1000px), (pointer: coarse) {
+  body { position: relative; }
+  .bg-texture {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: auto;
+    background-size: 100% auto; background-repeat: repeat-y; background-position: center top;
+  }
+  /* zlatá světla jen jemně, ať nepřebíjejí */
+  .bg-anim { opacity: .6; }
+}
