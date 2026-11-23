@@ -999,3 +999,45 @@ body::after {
 .award-medal { box-shadow: 0 6px 16px rgba(0,0,0,.22); }
 .video-btn { box-shadow: 0 8px 24px rgba(0,0,0,.28); }
 .deco-item img { filter: drop-shadow(0 10px 14px rgba(0,0,0,.3)); }
+
+/* Název YesChef vedle loga: stejný ozdobný rukopis jako v logu */
+.brand span {
+  font-family: "Alex Brush", "Great Vibes", "Segoe Script", cursive;
+  font-weight: 400; font-size: 2.25rem; letter-spacing: 0; line-height: 1;
+  transform: translateY(3px);
+}
+@media (max-width: 640px) { .brand span { font-size: 2rem; } }
+
+/* Název YesChef vedle loga: přímo písmo z loga (vyříznuté z loga), ne podobný font */
+.brand .brand-text { width: auto; height: 34px; display: block; transform: translateY(2px); }
+@media (max-width: 640px) { .brand .brand-text { height: 30px; } }
+
+/* Všechna záhlaví podstránek stejně vysoká, text vždy na stejném místě */
+.page-hero, .page-hero-photo {
+  min-height: 600px;
+  padding-block: 120px 64px;
+  display: flex; align-items: center;
+}
+.page-hero > .page-hero-in { width: 100%; }
+.page-hero h1 { min-height: 0; }
+@media (max-width: 640px) {
+  .page-hero, .page-hero-photo { min-height: 520px; padding-block: 112px 48px; }
+}
+/* text začíná na všech podstránkách ve stejné výšce */
+.page-hero, .page-hero-photo { align-items: flex-start; padding-top: 200px; }
+@media (max-width: 640px) { .page-hero, .page-hero-photo { padding-top: 140px; } }
+
+/* Ilustrace jídla: místo medúzy klidné vznášení – pomalu plují a jemně se pootáčí,
+   bez natahování a mačkání tvaru */
+.deco-item img {
+  transform-origin: 50% 50%;
+  animation-name: ingredientFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes ingredientFloat {
+  0%   { transform: translate(0, 0)       rotate(var(--r, 0deg)); }
+  50%  { transform: translate(6px, -14px) rotate(calc(var(--r, 0deg) + 5deg)); }
+  100% { transform: translate(-4px, -24px) rotate(calc(var(--r, 0deg) - 3deg)); }
+}
