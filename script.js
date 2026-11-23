@@ -222,10 +222,12 @@ document.querySelectorAll('[data-yt]').forEach(box => {
     sx: .00006 + (i % 3) * .00003, sy: .00007 + ((i + 1) % 3) * .00002, p: i * 1.3
   }, o));
   let W = 0, H = 0, sparks = [];
-  const SCALE = 0.5; // pozadí je rozmazané, stačí nižší rozlišení = rychlejší
+  const MOBIL = window.matchMedia('(max-width: 1000px), (pointer: coarse)').matches;
+  const SCALE = MOBIL ? 0.3 : 0.5;   // pozadí je rozmazané, stačí nižší rozlišení = rychlejší
+  const FRAME = MOBIL ? 66 : 33;     // mobil 15 snímků/s, počítač 30 snímků/s
 
   function size() {
-    W = window.innerWidth; H = window.innerHeight;
+    W = window.innerWidth; H = Math.round(cv.getBoundingClientRect().height) || window.innerHeight;
     cv.width = Math.round(W * SCALE); cv.height = Math.round(H * SCALE);
     const n = Math.round(Math.min(80, (W * H) / 26000 * nalada.jiskry));
     sparks = Array.from({ length: n }, () => newSpark(true));
@@ -243,10 +245,16 @@ document.querySelectorAll('[data-yt]').forEach(box => {
   }
 
   let last = 0;
-  function frame(t) {
+  // vlastní hodiny animace: běží stále stejně rychle, i když prohlížeč při scrollu snímky vynechá
+  let cas = 0;
+  function frame(now) {
     requestAnimationFrame(frame);
-    if (document.hidden || t - last < 33) return; // cca 30 snímků za sekundu
-    last = t;
+    if (document.hidden || now - last < FRAME) return;
+    const dt = Math.min(now - last, 70);   // po pauze žádný skok dopředu
+    last = now;
+    cas += dt;
+    const t = cas;
+    const krok = dt / 33;                  // pohyb jisker podle času, ne podle počtu snímků
     g.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     // pod animací je Michaelovo vlastní pozadí (img/pozadi.webp), tady jen jemný barevný nádech stránky
     g.clearRect(0, 0, W, H);
@@ -269,7 +277,7 @@ document.querySelectorAll('[data-yt]').forEach(box => {
     });
 
     sparks.forEach((s, i) => {
-      s.y -= s.v; s.x += s.d + Math.sin(t * .001 + s.t) * .15;
+      s.y -= s.v * krok; s.x += (s.d + Math.sin(t * .001 + s.t) * .15) * krok;
       if (s.y < -10) sparks[i] = newSpark(false);
       const tw = s.a * (.6 + .4 * Math.sin(t * .003 + s.t));
       g.fillStyle = `rgba(${nalada.barvaJisker},${tw})`;
@@ -279,7 +287,13 @@ document.querySelectorAll('[data-yt]').forEach(box => {
   }
 
   size();
-  window.addEventListener('resize', size);
+  let lastW = W, lastH = H;
+  window.addEventListener('resize', () => {
+    // na mobilu se při scrollu mění výška kvůli liště prohlížeče – to ignorujeme
+    if (window.innerWidth !== lastW) {
+      size(); lastW = W; lastH = H;
+    }
+  });
   requestAnimationFrame(frame);
 })();
 
@@ -352,6 +366,7 @@ document.querySelectorAll('[data-yt]').forEach(box => {
   let ceka = false;
   function posun() {
     ceka = false;
+    if (window.innerWidth <= 640) return; // na mobilu jsou ilustrace skryté
     const vh = window.innerHeight;
     prvky.forEach(o => {
       const r = o.sekce.getBoundingClientRect();

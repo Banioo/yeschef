@@ -1111,3 +1111,17 @@ body::after {
 .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* iPhone: plynulejší scroll */
+.bg-texture { filter: none; }
+@media (max-width: 1000px), (pointer: coarse) {
+  .top.scrolled, .top { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .top.scrolled { background: rgba(22, 21, 20, .96); }
+  .form { backdrop-filter: none; }
+  .bg-texture, .bg-anim { transform: translateZ(0); }
+}
+html, body { overscroll-behavior-y: none; }
+
+/* Pozadí má pevnou výšku obrazovky – když se na iPhonu schová lišta Safari,
+   nic se neroztahuje a animace neposkočí */
+.bg-anim, .bg-texture { inset: 0 0 auto 0; height: 100vh; height: 100lvh; }
